@@ -39,6 +39,7 @@ from icinga2api.events import Events
 from icinga2api.exceptions import Icinga2ApiException
 from icinga2api.objects import Objects
 from icinga2api.status import Status
+from icinga2api.config import Config
 
 LOG = logging.getLogger(__name__)
 
@@ -81,6 +82,7 @@ class Client(object):
         self.actions = Actions(self)
         self.events = Events(self)
         self.status = Status(self)
+        self.config = Config(self)
         self.version = icinga2api.__version__
 
         if not self.url:
