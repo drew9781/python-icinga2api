@@ -33,6 +33,6 @@ class Config(Base):
         url = '{}/{}/{}/{}/{}'.format(self.base_url_path, 'stages/files', package_name, stage, 'startup.log')
         return self._request('GET', url)
 
-    def remove_stage(self, package, stage):
+    def remove_stage(self, package_name, stage):
         url = '{}/{}/{}/{}'.format(self.base_url_path, 'stages', package_name, stage)
         return self._request('DELETE',url)
