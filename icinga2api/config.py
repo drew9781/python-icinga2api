@@ -13,6 +13,10 @@ class Config(Base):
 
     base_url_path = 'v1/config'
 
+    def create_package(self, package_name):
+        url = '{}/{}/{}'.format(self.base_url_path, 'packages', package_name)
+        return self._request('POST', url)
+
     def upload_package(self, package_name, files):
         url = '{}/{}/{}'.format(self.base_url_path, 'stages', package_name)
         payload = {
@@ -22,7 +26,7 @@ class Config(Base):
         return self._request('POST', url, payload)
 
     def list_packages(self):
-        url = '{}/{}/{}'.format(self.base_url_path, 'packages')
+        url = '{}/{}'.format(self.base_url_path, 'packages')
         return self._request('GET', url)
     
     def get_package_error(self, package_name, stage):
