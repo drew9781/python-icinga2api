@@ -35,4 +35,4 @@ class Config(Base):
 
     def remove_stage(self, package_name, stage):
         url = '{}/{}/{}/{}'.format(self.base_url_path, 'stages', package_name, stage)
-        return self._request('DELETE',url)
+        return self._request('DELETE',url, {})
